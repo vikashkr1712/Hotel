@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-black: #000000;
+  --color-dark-gray: #2b2b2b;
+  --color-gold: #c8a64d;
+  --color-white: #ffffff;
+  --color-light-gray: #f5f5f5;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-white);
+  background-color: var(--color-black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+  max-width: 100%;
+}
+
+.container {
+  width: min(90%, 1440px);
+  margin: auto;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+p {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+button {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+section {
+  padding: clamp(4rem, 6vw, 7rem) 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 0.3125rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b39240;
+}
+
+@media (min-width: 1700px) {
+  .container {
+    max-width: 1800px;
+  }
+}

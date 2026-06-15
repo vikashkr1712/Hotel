@@ -1,0 +1,217 @@
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 100;
+  padding: clamp(1.25rem, 3vw, 1.875rem) 0;
+}
+
+.navbar-container {
+  width: min(90%, 1440px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3.125rem);
+}
+
+/* Logo */
+.navbar-logo h1 {
+  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-gold);
+  font-family: var(--font-heading);
+  letter-spacing: 0.125rem;
+}
+
+.navbar-toggle,
+.navbar-overlay {
+  display: none;
+}
+
+/* Navigation Links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: clamp(1.25rem, 2.8vw, 2.5rem);
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-links a {
+  color: var(--color-white);
+  font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 0.125rem;
+  background: var(--color-gold);
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--color-gold);
+}
+
+.navbar-links a:hover:after {
+  width: 100%;
+}
+
+/* Book Now Button */
+.navbar-btn {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  padding: clamp(0.625rem, 1.2vw, 0.75rem) clamp(1rem, 2vw, 1.75rem);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar-btn:hover {
+  background-color: #b39240;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(200, 166, 77, 0.3);
+}
+
+@media (min-width: 1700px) {
+  .navbar-container {
+    max-width: 1800px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navbar-links {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-links a {
+    font-size: 0.75rem;
+  }
+
+  .navbar-btn {
+    padding: 0.625rem 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    position: absolute;
+  }
+
+  .navbar-container {
+    width: min(92%, 1440px);
+    position: relative;
+    padding-right: 3.25rem;
+  }
+
+  .navbar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--color-white);
+    border: 1px solid rgba(200, 166, 77, 0.45);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2000;
+  }
+
+  .navbar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 105;
+  }
+
+  .navbar-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: min(82vw, 17.5rem);
+    height: 100vh;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: var(--color-dark-gray);
+    padding: 6rem 2rem 2rem;
+    transform: none;
+    transition: right 0.3s ease;
+    z-index: 1200;
+    box-shadow: -1.25rem 0 3rem rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar-links.is-open {
+    right: 0;
+  }
+
+  .navbar-toggle[aria-expanded="true"] {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    transform: none;
+    z-index: 2000;
+  }
+
+  .navbar-links a {
+    font-size: 0.9rem;
+  }
+
+  .navbar-btn {
+    margin-left: auto;
+    margin-right: 3.25rem;
+  }
+}
+
+@media (max-width: 374px) {
+  .navbar-container {
+    gap: 0.625rem;
+  }
+
+  .navbar-logo h1 {
+    font-size: 1.25rem;
+  }
+
+  .navbar-btn {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .navbar-toggle {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

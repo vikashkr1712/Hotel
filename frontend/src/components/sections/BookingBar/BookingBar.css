@@ -1,0 +1,163 @@
+.booking-bar {
+  position: relative;
+  z-index: 50;
+  margin-top: clamp(-5rem, -6vw, -3.75rem);
+  padding: 0 0 clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.booking-container {
+  width: min(90%, 1440px);
+  margin: 0 auto;
+}
+
+.booking-form {
+  background: var(--color-dark-gray);
+  border-radius: clamp(0.75rem, 1.5vw, 1.25rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) auto;
+  gap: clamp(1rem, 2vw, 1.25rem);
+  align-items: flex-end;
+  justify-content: space-between;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.booking-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-field label {
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-weight: 600;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.booking-field input,
+.booking-field select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-white);
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.booking-field input::placeholder,
+.booking-field select {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.booking-field input:focus,
+.booking-field select:focus {
+  border-bottom-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+.booking-field input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 0;
+  opacity: 0.6;
+  filter: invert(1);
+}
+
+.booking-field select option {
+  background: var(--color-dark-gray);
+  color: var(--color-white);
+}
+
+.booking-btn {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  width: auto;
+  min-width: 11rem;
+  padding: clamp(0.8rem, 1.4vw, 0.95rem) clamp(1.25rem, 2vw, 1.875rem);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: fit-content;
+  white-space: nowrap;
+  align-self: flex-end;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.booking-btn:hover {
+  background-color: #b39240;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(200, 166, 77, 0.4);
+}
+
+.booking-btn:active {
+  transform: translateY(-1px);
+}
+
+@media (min-width: 1700px) {
+  .booking-container {
+    max-width: 1800px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .booking-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: stretch;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .booking-bar {
+    margin-top: -3.75rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .booking-btn {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 374px) {
+  .booking-container {
+    width: min(94%, 1440px);
+  }
+
+  .booking-form {
+    padding: 1.125rem;
+  }
+}

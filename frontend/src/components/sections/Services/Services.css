@@ -13,20 +13,9 @@
 }
 
 /* Left Column - Content */
-.services-content {
-  animation: fadeInLeft 0.8s ease;
-}
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+
+
 
 .services-badge {
   display: inline-block;
@@ -88,19 +77,10 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.25rem, 2.4vw, 1.875rem);
-  animation: fadeInRight 0.8s ease;
+  
 }
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+
 
 /* Service Card */
 .service-card {
@@ -112,13 +92,17 @@
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+
+transform-origin: center;
 }
 
 .service-card:hover {
-  background: #ffffff;
-  border-color: var(--color-gold);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  transform: translateY(-10px) scale(1.03);
+
+  box-shadow: 0 25px 45px rgba(0,0,0,0.18);
+
 }
 
 .service-icon {
@@ -134,8 +118,11 @@
 }
 
 .service-card:hover .service-icon {
-  background: #eeeeee;
-  transform: scale(1.1);
+
+  background:#eeeeee;
+
+  transform:scale(1.15) rotate(8deg);
+
 }
 
 .service-icon img {

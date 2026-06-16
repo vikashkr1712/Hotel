@@ -35,20 +35,11 @@
   z-index: 10;
   text-align: center;
   color: var(--color-white);
-  animation: fadeInUp 0.8s ease;
+  
   width: min(90%, 56rem);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
 
 .hero-title {
   font-size: clamp(2rem, 5vw, 5rem);

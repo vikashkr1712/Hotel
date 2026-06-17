@@ -43,22 +43,15 @@
 
 /* Testimonials Grid */
 .testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  animation: fadeInUp 0.8s ease;
+
+display:grid;
+
+grid-template-columns:repeat(3,minmax(0,1fr));
+
+gap:clamp(1.5rem,3vw,2.5rem);
+
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* Testimonial Card */
 .testimonial-card {

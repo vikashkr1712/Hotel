@@ -2,15 +2,17 @@ import './Hero.css'
 
 import { useState, useEffect } from 'react'
 
-import { motion } from 'framer-motion'
-
 import hero1 from '../../../assets/images/hero/banner_1.jpg'
 
-import hero2 from '../../../assets/images/rooms/price_1.jpg'
+import hero2 from '../../../assets/images/hero/banner_2.png'
 
-import hero3 from '../../../assets/images/rooms/price_2.jpg'
+import hero3 from '../../../assets/images/hero/banner_3.png'
 
-import hero4 from '../../../assets/images/rooms/price_3.jpg'
+import hero4 from '../../../assets/images/hero/banner_4.png'
+
+import { motion } from 'framer-motion'
+
+
 
 export default function Hero() {
 
@@ -52,179 +54,167 @@ export default function Hero() {
 
     <section className="hero" id="home">
 
-      <motion.img
+    <motion.img
 
-        key={currentImage}
+  key={currentImage}
 
-        src={images[currentImage]}
+  src={images[currentImage]}
 
-        alt="Hotel Banner"
+  alt="Hotel Banner"
 
-        className="hero-image"
+  className="hero-image"
 
-        initial={{
+  initial={{ opacity:0 }}
 
-          opacity:0,
+  animate={{ opacity:1 }}
 
-          scale:1.08
+  transition={{ duration:1.2 }}
 
-        }}
-
-        animate={{
-
-          opacity:1,
-
-          scale:1
-
-        }}
-
-        transition={{
-
-          duration:1.5
-
-        }}
-
-      />
+/>
 
       <div className="hero-overlay"></div>
 
-      <motion.div
+    <motion.div
 
-        className="hero-content"
+className="hero-content"
 
-        initial={{
+initial={{
 
-          opacity:0,
+opacity:0,
 
-          y:80
+y:60
 
-        }}
+}}
 
-        animate={{
+animate={{
 
-          opacity:1,
+opacity:1,
 
-          y:0
+y:0
 
-        }}
+}}
 
-        transition={{
+transition={{
 
-          duration:1
+duration:1
 
-        }}
+}}
 
-      >
+>
 
-        <motion.h1
+<motion.h1
 
-          className="hero-title"
+className="hero-title"
 
-          initial={{
+initial={{
 
-            opacity:0,
+opacity:0,
 
-            y:40
+y:30
 
-          }}
+}}
 
-          animate={{
+animate={{
 
-            opacity:1,
+opacity:1,
 
-            y:0
+y:0
 
-          }}
+}}
 
-          transition={{
+transition={{
 
-            delay:0.3,
+duration:0.8
 
-            duration:0.8
+}}
 
-          }}
+>
 
-        >
+Book With Best
 
-          Book With Best
+<br/>
 
-          <br/>
+Luxury Hotel
 
-          Luxury Hotel
+</motion.h1>
 
-        </motion.h1>
+<motion.p
 
-        <motion.p
+className="hero-subtitle"
 
-          className="hero-subtitle"
+initial={{
 
-          initial={{
+opacity:0
 
-            opacity:0
+}}
 
-          }}
+animate={{
 
-          animate={{
+opacity:1
 
-            opacity:1
+}}
 
-          }}
+transition={{
 
-          transition={{
+delay:0.4,
 
-            delay:0.6,
+duration:0.8
 
-            duration:0.8
+}}
 
-          }}
+>
 
-        >
+Where Elegance Meets Extraordinary Service
 
-          Where Elegance Meets Extraordinary Service
+</motion.p>
 
-        </motion.p>
+<motion.button
 
-        <motion.button
+className="hero-btn"
 
-          className="hero-btn"
+initial={{
 
-          initial={{
+opacity:0,
 
-            opacity:0,
+scale:0.8
 
-            scale:0.8
+}}
 
-          }}
+animate={{
 
-          animate={{
+opacity:1,
 
-            opacity:1,
+scale:1
 
-            scale:1
+}}
 
-          }}
+transition={{
 
-          transition={{
+delay:0.7,
 
-            delay:0.9,
+duration:0.5
 
-            duration:0.6
+}}
 
-          }}
+whileHover={{
 
-          whileHover={{
+scale:1.05
 
-            scale:1.05
+}}
 
-          }}
+whileTap={{
 
-        >
+scale:0.95
 
-          Reserve Now
+}}
 
-        </motion.button>
+>
 
-      </motion.div>
+Reserve Now
+
+</motion.button>
+
+</motion.div>
 
     </section>
 

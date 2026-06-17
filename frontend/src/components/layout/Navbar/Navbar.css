@@ -69,6 +69,20 @@
   width: 100%;
 }
 
+.active-link{
+
+color:var(--color-gold);
+
+}
+
+.active-link::after{
+
+width:100% !important;
+
+}
+
+
+
 /* Book Now Button */
 .navbar-btn {
   background-color: var(--color-gold);

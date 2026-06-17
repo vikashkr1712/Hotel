@@ -1,85 +1,108 @@
 import './Rooms.css'
+
 import RoomCard from './RoomCard'
+
 import { roomData } from '../../../data/roomData'
 
 import Slider from 'react-slick'
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
+import { motion } from 'framer-motion'
+
 import 'slick-carousel/slick/slick.css'
+
 import 'slick-carousel/slick/slick-theme.css'
 
 function NextArrow({ onClick }) {
+
   return (
+
     <button
+
       className="slider-arrow next-arrow"
+
       onClick={onClick}
+
     >
+
       <FaChevronRight />
+
     </button>
+
   )
+
 }
 
 function PrevArrow({ onClick }) {
+
   return (
+
     <button
+
       className="slider-arrow prev-arrow"
+
       onClick={onClick}
+
     >
+
       <FaChevronLeft />
+
     </button>
+
   )
+
 }
 
 export default function Rooms() {
 
-const settings = {
+  const settings = {
 
-  dots:false,
+    dots:false,
 
-  infinite:true,
+    infinite:true,
 
-  speed:500,
+    speed:500,
 
-  slidesToShow:3,
+    slidesToShow:3,
 
-  slidesToScroll:1,
+    slidesToScroll:1,
 
-  adaptiveHeight:false,
+    adaptiveHeight:false,
 
-  nextArrow:<NextArrow />,
+    nextArrow:<NextArrow />,
 
-  prevArrow:<PrevArrow />,
+    prevArrow:<PrevArrow />,
 
-  responsive:[
+    responsive:[
 
-    {
+      {
 
-      breakpoint:1024,
+        breakpoint:1024,
 
-      settings:{
+        settings:{
 
-        slidesToShow:2
+          slidesToShow:2
+
+        }
+
+      },
+
+      {
+
+        breakpoint:769,
+
+        settings:{
+
+          slidesToShow:1
+
+        }
 
       }
 
-    },
+    ]
 
-    {
-
-      breakpoint:769,
-
-      settings:{
-
-        slidesToShow:1
-
-      }
-
-    }
-
-  ]
-
-}
+  }
 
   return (
 
@@ -87,13 +110,51 @@ const settings = {
 
       <div className="rooms-container">
 
-        <div className="rooms-header">
+        <motion.div
+
+          className="rooms-header"
+
+          initial={{
+
+            opacity:0,
+
+            y:50
+
+          }}
+
+          whileInView={{
+
+            opacity:1,
+
+            y:0
+
+          }}
+
+          transition={{
+
+            duration:0.8
+
+          }}
+
+         viewport={{
+
+once:false,
+
+amount:0.3
+
+}}
+
+        >
 
           <div>
 
             <div className="rooms-badge">
 
-              <span>Room Type</span>
+              <span>
+
+                Room Type
+
+              </span>
 
             </div>
 
@@ -111,29 +172,36 @@ const settings = {
 
           </button>
 
+        </motion.div>
+
+        <div className="rooms-slider-wrapper">
+
+          <Slider
+
+            {...settings}
+
+            className="rooms-slider"
+
+          >
+
+            {roomData.map(room=>(
+
+              <div key={room.id}>
+
+                <RoomCard room={room}/>
+
+              </div>
+
+            ))}
+
+          </Slider>
+
         </div>
-
-       <div className="rooms-slider-wrapper">
-
-  <Slider {...settings} className="rooms-slider">
-
-    {roomData.map(room => (
-
-      <div key={room.id}>
-
-        <RoomCard room={room} />
-
-      </div>
-
-    ))}
-
-  </Slider>
-
-</div>
 
       </div>
 
     </section>
 
   )
+
 }

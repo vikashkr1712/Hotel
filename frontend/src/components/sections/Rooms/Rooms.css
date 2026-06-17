@@ -93,9 +93,10 @@
 
 }
 
-.room-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(200, 166, 77, 0.2);
+.room-card:hover{
+
+box-shadow:0 30px 60px rgba(200,166,77,.2);
+
 }
 
 .room-image {

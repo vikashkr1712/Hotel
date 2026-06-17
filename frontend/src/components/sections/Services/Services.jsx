@@ -65,7 +65,13 @@ initial={{ opacity:0 }}
 
 whileInView={{ opacity:1 }}
 
-viewport={{ once:true }}
+viewport={{
+
+once:false,
+
+amount:0.3
+
+}}
 
 transition={{ duration:0.8 }}
 
@@ -95,11 +101,11 @@ x:0
 
 }}
 
-viewport={{ once:true }}
+viewport={{
 
-transition={{
+once:false,
 
-duration:0.8
+amount:0.3
 
 }}
 
@@ -154,11 +160,11 @@ x:0
 
 }}
 
-viewport={{ once:true }}
+viewport={{ once:false }}
 
 transition={{
 
-duration:0.8,
+duration:0.3,
 
 delay:0.2
 
@@ -190,7 +196,13 @@ y:0
 
 }}
 
-viewport={{ once:true }}
+viewport={{
+
+once:false,
+
+amount:0.3
+
+}}
 
 transition={{
 

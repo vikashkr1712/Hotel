@@ -107,7 +107,7 @@
 
 .amenity-icon {
   font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-  color: #a9c4dc;
+  color: #24425d;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -119,7 +119,7 @@
 .amenity-item p {
   font-size: clamp(0.95rem, 1vw, 1.05rem);
   font-weight: 400;
-  color: #d4bd75;
+  color: #e3ad0a;
   margin: 0;
   line-height: 1.5;
   font-family: var(--font-heading);

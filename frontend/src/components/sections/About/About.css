@@ -119,10 +119,14 @@
 .amenity-item p {
   font-size: clamp(0.95rem, 1vw, 1.05rem);
   font-weight: 400;
-  color: #e3ad0a;
+  color: var(--color-gold);
   margin: 0;
   line-height: 1.5;
   font-family: var(--font-heading);
+}
+
+body.light-mode .amenity-item p {
+  color: #e3ad0a;
 }
 
 @media (min-width: 768px) {

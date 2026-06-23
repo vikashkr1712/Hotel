@@ -16,13 +16,13 @@ import Services from '../../components/sections/Services/Services'
 
 import Testimonials from '../../components/sections/Testimonials/Testimonials'
 
-export default function Home() {
+export default function Home({ theme,toggleTheme }) {
 
   return (
 
     <div className="home">
 
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <Hero />
 

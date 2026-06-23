@@ -7,6 +7,18 @@
   padding: clamp(4rem, 7vw, 6.5rem) 0;
 }
 
+body.light-mode .rooms {
+  background: #ffffff;
+}
+
+body.light-mode .room-card .room-title,
+body.light-mode .details-panel h2,
+body.light-mode .details-panel h4,
+body.light-mode .details-grid span,
+body.light-mode .facility-list div {
+  color: #ffffff;
+}
+
 .rooms-container {
   width: min(92%, 1440px);
   margin: 0 auto;

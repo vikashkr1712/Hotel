@@ -4,9 +4,11 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 
 import { motion } from 'framer-motion'
 
+import ThemeToggle from '../../common/ThemeToggle/ThemeToggle'
+
 import './Navbar.css'
 
-export default function Navbar() {
+export default function Navbar({ theme,toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection,setActiveSection]=useState('home')
 
@@ -250,6 +252,8 @@ Contact
 </li>
 
 </ul>
+
+<ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
 <button className="navbar-btn">
 

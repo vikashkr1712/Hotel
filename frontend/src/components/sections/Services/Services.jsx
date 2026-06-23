@@ -53,6 +53,34 @@ export default function Services() {
 
   ]
 
+  const cardVariants = {
+    hidden:{
+      opacity:0,
+      y:24
+    },
+    visible:{
+      opacity:1,
+      y:0
+    }
+  }
+
+  const gridVariants = {
+    hidden:{
+      opacity:0,
+      x:80
+    },
+    visible:{
+      opacity:1,
+      x:0,
+      transition:{
+        duration:0.45,
+        delay:0.2,
+        staggerChildren:0.12,
+        delayChildren:0.25
+      }
+    }
+  }
+
   return (
 
 <motion.section
@@ -67,7 +95,7 @@ whileInView={{ opacity:1 }}
 
 viewport={{
 
-once:false,
+once:true,
 
 amount:0.3
 
@@ -103,7 +131,7 @@ x:0
 
 viewport={{
 
-once:false,
+once:true,
 
 amount:0.3
 
@@ -144,35 +172,17 @@ View All
 
 className="services-grid"
 
-initial={{
+variants={gridVariants}
 
-opacity:0,
+initial="hidden"
 
-x:80
+whileInView="visible"
 
-}}
-
-whileInView={{
-
-opacity:1,
-
-x:0
-
-}}
-
-viewport={{ once:false }}
-
-transition={{
-
-duration:0.3,
-
-delay:0.2
-
-}}
+viewport={{ once:true }}
 
 >
 
-{services.map((service,index)=>(
+{services.map((service)=>(
 
 <motion.div
 
@@ -180,35 +190,13 @@ key={service.id}
 
 className="service-card"
 
-initial={{
-
-opacity:0,
-
-y:40
-
-}}
-
-whileInView={{
-
-opacity:1,
-
-y:0
-
-}}
-
-viewport={{
-
-once:false,
-
-amount:0.3
-
-}}
+variants={cardVariants}
 
 transition={{
 
-duration:0.5,
+duration:0.55,
 
-delay:index*0.15
+ease:[0.22,1,0.36,1]
 
 }}
 

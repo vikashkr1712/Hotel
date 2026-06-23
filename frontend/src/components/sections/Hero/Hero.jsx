@@ -32,6 +32,18 @@ export default function Hero() {
 
   useEffect(()=>{
 
+    images.forEach(image=>{
+
+      const preloadedImage=new Image()
+
+      preloadedImage.src=image
+
+    })
+
+  },[])
+
+  useEffect(()=>{
+
     const interval=setInterval(()=>{
 
       setCurrentImage(previous=>
@@ -54,23 +66,27 @@ export default function Hero() {
 
     <section className="hero" id="home">
 
+    {images.map((image,index)=>(
+
     <motion.img
 
-  key={currentImage}
+  key={image}
 
-  src={images[currentImage]}
+  src={image}
 
   alt="Hotel Banner"
 
   className="hero-image"
 
-  initial={{ opacity:0 }}
+  initial={false}
 
-  animate={{ opacity:1 }}
+  animate={{ opacity:index===currentImage ? 1 : 0 }}
 
   transition={{ duration:1.2 }}
 
 />
+
+    ))}
 
       <div className="hero-overlay"></div>
 

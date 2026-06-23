@@ -217,6 +217,19 @@ body.light-mode .navbar-btn {
     font-size: 0.9rem;
   }
 
+  body.light-mode .navbar-links {
+    background: #ffffff;
+  }
+
+  body.light-mode .navbar-links a {
+    color: #050505;
+  }
+
+  body.light-mode .navbar-links a:hover,
+  body.light-mode .navbar-links .active-link {
+    color: var(--color-gold);
+  }
+
   .navbar-btn {
     margin-left: auto;
     margin-right: 3.25rem;

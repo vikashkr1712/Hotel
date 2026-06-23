@@ -28,11 +28,36 @@ body.light-mode .room-description {
   color: #2b2b2b;
 }
 
+body.light-mode .details-overlay {
+  background: rgba(17, 17, 17, 0.42);
+}
+
+body.light-mode .details-panel {
+  border-left-color: rgba(200, 166, 77, 0.34);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f4ec 100%);
+  box-shadow: -24px 0 70px rgba(0, 0, 0, 0.22);
+}
+
 body.light-mode .details-panel h2,
-body.light-mode .details-panel h4,
+body.light-mode .details-panel h4 {
+  color: #151515;
+}
+
+body.light-mode .details-panel p,
+body.light-mode .policy-list li {
+  color: #3c3c3c;
+}
+
+body.light-mode .details-grid div,
+body.light-mode .facility-list div {
+  border-color: rgba(17, 17, 17, 0.08);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+}
+
 body.light-mode .details-grid span,
 body.light-mode .facility-list div {
-  color: #ffffff;
+  color: #202020;
 }
 
 .rooms-container {

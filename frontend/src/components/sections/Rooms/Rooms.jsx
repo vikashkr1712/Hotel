@@ -138,7 +138,7 @@ export default function Rooms() {
 
          viewport={{
 
-once:false,
+once:true,
 
 amount:0.3
 

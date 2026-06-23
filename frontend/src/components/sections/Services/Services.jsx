@@ -72,11 +72,9 @@ export default function Services() {
 
   const gridVariants = {
     hidden:{
-      opacity:0,
       x:80
     },
     visible:{
-      opacity:1,
       x:0,
       transition:{
         duration:0.65,
@@ -102,7 +100,7 @@ whileInView={{ opacity:1 }}
 
 viewport={{
 
-once:true,
+once:false,
 
 amount:0.3
 
@@ -138,7 +136,7 @@ x:0
 
 viewport={{
 
-once:true,
+once:false,
 
 amount:0.3
 
@@ -185,7 +183,7 @@ initial="hidden"
 
 whileInView="visible"
 
-viewport={{ once:true }}
+viewport={{ once:false, amount:0.25 }}
 
 >
 

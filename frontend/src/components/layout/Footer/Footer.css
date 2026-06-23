@@ -218,7 +218,7 @@ body.light-mode .footer {
 }
 
 body.light-mode .footer-bottom {
-  background: rgba(0, 0, 0, 0.5);
+  background: #6b5540;
 }
 
 body.light-mode .footer-description,
@@ -231,7 +231,11 @@ body.light-mode .footer-bottom-social span {
 }
 
 body.light-mode .copyright {
-  color: #999999;
+  color: #efe6d4;
+}
+
+body.light-mode .footer-bottom-social span {
+  color: #efe6d4;
 }
 
 .footer-bottom-container {

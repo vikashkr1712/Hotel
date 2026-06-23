@@ -11,7 +11,23 @@ body.light-mode .rooms {
   background: #ffffff;
 }
 
-body.light-mode .room-card .room-title,
+body.light-mode .room-card {
+  border-color: rgba(200, 166, 77, 0.28);
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .room-card:hover {
+  border-color: rgba(200, 166, 77, 0.55);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(200, 166, 77, 0.12);
+}
+
+body.light-mode .room-title,
+body.light-mode .amenity span,
+body.light-mode .room-description {
+  color: #2b2b2b;
+}
+
 body.light-mode .details-panel h2,
 body.light-mode .details-panel h4,
 body.light-mode .details-grid span,

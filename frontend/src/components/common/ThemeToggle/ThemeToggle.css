@@ -14,8 +14,14 @@
 
 .theme-toggle:hover {
   background: var(--color-gold);
-  color: var(--color-black);
+  color: #050505;
   transform: translateY(-2px);
+}
+
+body.light-mode .theme-toggle {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-gold);
+  border-color: rgba(200, 166, 77, 0.7);
 }
 
 @media (max-width: 767px) {

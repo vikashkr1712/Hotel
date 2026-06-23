@@ -56,11 +56,17 @@ export default function Services() {
   const cardVariants = {
     hidden:{
       opacity:0,
-      y:24
+      y:34,
+      scale:0.96
     },
     visible:{
       opacity:1,
-      y:0
+      y:0,
+      scale:1,
+      transition:{
+        duration:0.65,
+        ease:[0.22,1,0.36,1]
+      }
     }
   }
 
@@ -73,10 +79,11 @@ export default function Services() {
       opacity:1,
       x:0,
       transition:{
-        duration:0.45,
+        duration:0.65,
         delay:0.2,
-        staggerChildren:0.12,
-        delayChildren:0.25
+        ease:[0.22,1,0.36,1],
+        staggerChildren:0.14,
+        delayChildren:0.18
       }
     }
   }
@@ -191,14 +198,6 @@ key={service.id}
 className="service-card"
 
 variants={cardVariants}
-
-transition={{
-
-duration:0.55,
-
-ease:[0.22,1,0.36,1]
-
-}}
 
 >
 

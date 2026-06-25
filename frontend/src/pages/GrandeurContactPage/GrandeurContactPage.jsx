@@ -222,6 +222,7 @@ export default function GrandeurContactPage({ theme, toggleTheme }) {
               ))}
             </div>
           </motion.div>
+
         </div>
       </motion.section>
 

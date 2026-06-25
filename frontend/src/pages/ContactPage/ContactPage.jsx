@@ -144,6 +144,7 @@ export default function ContactPage({ theme, toggleTheme }) {
               ))}
             </div>
           </motion.aside>
+
         </div>
       </motion.section>
 

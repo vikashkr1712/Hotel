@@ -184,8 +184,6 @@ amount:0.2
 
         </motion.div>
 
-
-
         {/* Quick Links */}
 
         <motion.div

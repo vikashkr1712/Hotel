@@ -1,5 +1,7 @@
 import './Rooms.css'
 
+import { useEffect, useState } from 'react'
+
 import RoomCard from './RoomCard'
 
 import { roomData } from '../../../data/roomData'
@@ -54,7 +56,54 @@ function PrevArrow({ onClick }) {
 
 }
 
+function getSlidesToShow() {
+  if (typeof window === 'undefined') {
+    return 3
+  }
+
+  const width = Math.min(
+    window.innerWidth || 1200,
+    document.documentElement.clientWidth || window.innerWidth || 1200,
+    window.visualViewport?.width || window.innerWidth || 1200
+  )
+
+  if (width <= 767) {
+    return 1
+  }
+
+  if (width <= 1024) {
+    return 2
+  }
+
+  return 3
+}
+
 export default function Rooms() {
+
+  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow)
+
+  useEffect(() => {
+    let frameId = 0
+
+    const updateSlides = () => {
+      cancelAnimationFrame(frameId)
+      frameId = requestAnimationFrame(() => {
+        setSlidesToShow(getSlidesToShow())
+      })
+    }
+
+    updateSlides()
+    window.addEventListener('resize', updateSlides)
+    window.addEventListener('orientationchange', updateSlides)
+    window.visualViewport?.addEventListener('resize', updateSlides)
+
+    return () => {
+      cancelAnimationFrame(frameId)
+      window.removeEventListener('resize', updateSlides)
+      window.removeEventListener('orientationchange', updateSlides)
+      window.visualViewport?.removeEventListener('resize', updateSlides)
+    }
+  }, [])
 
   const settings = {
 
@@ -64,7 +113,7 @@ export default function Rooms() {
 
     speed:500,
 
-    slidesToShow:3,
+    slidesToShow,
 
     slidesToScroll:1,
 

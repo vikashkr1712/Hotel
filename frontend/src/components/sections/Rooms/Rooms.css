@@ -605,6 +605,18 @@ body.light-mode .facility-list div {
     padding: 0;
   }
 
+  .rooms-slider .slick-track {
+    align-items: stretch;
+  }
+
+  .rooms-slider .slick-slide {
+    width: 100% !important;
+  }
+
+  .rooms-slider .slick-slide > div {
+    width: 100%;
+  }
+
   .rooms-slider-wrapper {
     overflow: hidden;
   }

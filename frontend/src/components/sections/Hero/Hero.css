@@ -31,6 +31,13 @@
   width: min(90%, 56rem);
 }
 
+.hero-crest {
+  display: block;
+  width: clamp(6.875rem, 9vw, 8.125rem);
+  height: auto;
+  margin: 0 auto clamp(1.875rem, 3vw, 2.5rem);
+}
+
 
 
 .hero-title {
@@ -87,6 +94,11 @@ box-shadow:0 15px 30px rgba(200,166,77,0.4);
 
   .hero-content {
     width: 100%;
+  }
+
+  .hero-crest {
+    width: clamp(5.25rem, 24vw, 6.25rem);
+    margin-bottom: 1.875rem;
   }
 }
 

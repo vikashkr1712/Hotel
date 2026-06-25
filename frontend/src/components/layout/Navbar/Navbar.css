@@ -22,14 +22,27 @@
 .navbar-logo {
   display: inline-flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
 }
 
-.navbar-logo h1 {
+.navbar-logo-title {
   font-size: clamp(1.4rem, 2.2vw, 1.75rem);
   font-weight: 700;
   color: var(--color-gold);
   font-family: var(--font-heading);
   letter-spacing: 0.125rem;
+}
+
+.navbar-logo-subtitle {
+  margin-top: 0.32rem;
+  color: var(--color-gold);
+  font-size: clamp(0.55rem, 0.75vw, 0.68rem);
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .navbar-toggle,
@@ -596,8 +609,13 @@ body.light-mode .navbar-btn {
     gap: 0.625rem;
   }
 
-  .navbar-logo h1 {
+  .navbar-logo-title {
     font-size: 1.25rem;
+  }
+
+  .navbar-logo-subtitle {
+    font-size: 0.5rem;
+    letter-spacing: 0.14rem;
   }
 
   .navbar-btn {

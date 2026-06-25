@@ -148,7 +148,9 @@ ease:'easeOut'
 
 <Link to="/" className="navbar-logo" aria-label="Grandeur contact page">
 
-<h1>GRANDEUR</h1>
+<span className="navbar-logo-title">GRANDEUR</span>
+
+<span className="navbar-logo-subtitle">LUXURY HOTEL</span>
 
 </Link>
 

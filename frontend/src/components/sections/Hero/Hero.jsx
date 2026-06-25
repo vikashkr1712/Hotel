@@ -10,6 +10,8 @@ import hero3 from '../../../assets/images/hero/banner_3.png'
 
 import hero4 from '../../../assets/images/hero/banner_4.png'
 
+import grandeurCrest from '../../../assets/images/brand/grandeur-crest-reference.png'
+
 import { motion } from 'framer-motion'
 
 
@@ -117,6 +119,36 @@ duration:1
 }}
 
 >
+
+<motion.img
+
+src={grandeurCrest}
+
+alt="Grandeur crest"
+
+className="hero-crest"
+
+initial={{
+
+opacity:0
+
+}}
+
+animate={{
+
+opacity:1
+
+}}
+
+transition={{
+
+delay:0.15,
+
+duration:0.8
+
+}}
+
+/>
 
 <motion.h1
 

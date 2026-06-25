@@ -38,7 +38,7 @@ transition={{duration:0.8}}
 
 viewport={{
 
-once:false,
+once:true,
 
 amount:0.3
 

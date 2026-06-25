@@ -1,7 +1,5 @@
 import './Rooms.css'
 
-import { useEffect, useState } from 'react'
-
 import RoomCard from './RoomCard'
 
 import { roomData } from '../../../data/roomData'
@@ -56,54 +54,7 @@ function PrevArrow({ onClick }) {
 
 }
 
-function getViewportWidth() {
-  if (typeof window === 'undefined') {
-    return 1200
-  }
-
-  return Math.min(
-    window.innerWidth || 1200,
-    document.documentElement.clientWidth || window.innerWidth || 1200,
-    window.visualViewport?.width || window.innerWidth || 1200
-  )
-}
-
-function getSlidesToShow(width) {
-  if (width <= 768) {
-    return 1
-  }
-
-  if (width <= 1024) {
-    return 2
-  }
-
-  return 3
-}
-
-function useSlidesToShow() {
-  const [slidesToShow, setSlidesToShow] = useState(() => getSlidesToShow(getViewportWidth()))
-
-  useEffect(() => {
-    const updateSlides = () => {
-      setSlidesToShow(getSlidesToShow(getViewportWidth()))
-    }
-
-    updateSlides()
-    window.addEventListener('resize', updateSlides)
-    window.visualViewport?.addEventListener('resize', updateSlides)
-
-    return () => {
-      window.removeEventListener('resize', updateSlides)
-      window.visualViewport?.removeEventListener('resize', updateSlides)
-    }
-  }, [])
-
-  return slidesToShow
-}
-
 export default function Rooms() {
-
-  const slidesToShow = useSlidesToShow()
 
   const settings = {
 
@@ -113,11 +64,11 @@ export default function Rooms() {
 
     speed:500,
 
-    slidesToShow,
+    slidesToShow:3,
 
     slidesToScroll:1,
 
-    adaptiveHeight:slidesToShow===1,
+    adaptiveHeight:false,
 
     centerMode:false,
 
@@ -129,7 +80,22 @@ export default function Rooms() {
 
     nextArrow:<NextArrow />,
 
-    prevArrow:<PrevArrow />
+    prevArrow:<PrevArrow />,
+
+    responsive:[
+      {
+        breakpoint:1025,
+        settings:{
+          slidesToShow:2
+        }
+      },
+      {
+        breakpoint:769,
+        settings:{
+          slidesToShow:1
+        }
+      }
+    ]
 
   }
 
@@ -206,8 +172,6 @@ amount:0.3
         <div className="rooms-slider-wrapper">
 
           <Slider
-
-            key={`rooms-slider-${slidesToShow}`}
 
             {...settings}
 

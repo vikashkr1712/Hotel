@@ -3,6 +3,7 @@ import { useLayoutEffect, useState } from 'react'
 import Home from '../pages/Home/Home'
 import AboutPage from '../pages/AboutPage/AboutPage'
 import ContactPage from '../pages/ContactPage/ContactPage'
+import GrandeurContactPage from '../pages/GrandeurContactPage/GrandeurContactPage'
 
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
         <Route path="/about" element={<AboutPage theme={theme} toggleTheme={toggleTheme} />} />
         <Route path="/contact" element={<ContactPage theme={theme} toggleTheme={toggleTheme} />} />
+        <Route path="/grandeur" element={<GrandeurContactPage theme={theme} toggleTheme={toggleTheme} />} />
       </Routes>
     </Router>
   )

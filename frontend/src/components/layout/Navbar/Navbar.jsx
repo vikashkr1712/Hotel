@@ -27,6 +27,11 @@ setActiveSection('contact')
 return undefined
 }
 
+if (location.pathname === '/grandeur') {
+setActiveSection('contact')
+return undefined
+}
+
 const sections=document.querySelectorAll('section[id]')
 
 const observer=new IntersectionObserver(
@@ -99,11 +104,11 @@ ease:'easeOut'
 
 {/* Logo */}
 
-<div className="navbar-logo">
+<Link to="/" className="navbar-logo" aria-label="Grandeur contact page">
 
 <h1>GRANDEUR</h1>
 
-</div>
+</Link>
 
 <button
 
@@ -243,7 +248,7 @@ Services
 
 <Link
 
-to="/contact"
+to="/"
 
 className={
 

@@ -97,6 +97,10 @@ width:100% !important;
   white-space: nowrap;
 }
 
+.navbar .theme-toggle {
+  display: none;
+}
+
 body.light-mode .navbar-links a {
   color: #ffffff;
 }
@@ -233,6 +237,7 @@ body.light-mode .navbar-btn {
   .navbar-btn {
     margin-left: auto;
     margin-right: 3.25rem;
+    display: none;
   }
 }
 

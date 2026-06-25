@@ -75,11 +75,9 @@ amount:0.3
 
           <p className="footer-description">
 
-            Experience luxury and comfort at its finest.
-
-            We provide world-class accommodations
-
-            and exceptional service.
+            Experience luxury and comfort at its finest
+            with our world-class accommodations and
+            services.
 
           </p>
 
@@ -161,9 +159,9 @@ amount:0.3
 
               <MdEmail className="contact-icon" />
 
-              <a href="mailto:info@grandeurhotel.com">
+              <a href="mailto:info@grandeurluxury.com">
 
-                info@grandeurhotel.com
+                info@grandeurluxury.com
 
               </a>
 
@@ -175,9 +173,8 @@ amount:0.3
 
               <p>
 
-                123 Luxury Avenue,
-
-                New York, NY
+                123 Luxury Avenue, NY
+                10001
 
               </p>
 
@@ -219,15 +216,15 @@ amount:0.3
 
           <ul className="footer-links">
 
-            <li><a href="#home">Home</a></li>
+            <li><a href="/">Home</a></li>
 
-            <li><a href="#about">About</a></li>
+            <li><a href="/about">About Us</a></li>
 
-            <li><a href="#services">Services</a></li>
+            <li><a href="/#services">Services</a></li>
 
-            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="/#rooms">Rooms</a></li>
 
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
 
           </ul>
 

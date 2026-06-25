@@ -1,4 +1,5 @@
 import { useState,useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 import { FaBars, FaTimes } from 'react-icons/fa'
 
@@ -11,9 +12,20 @@ import './Navbar.css'
 export default function Navbar({ theme,toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection,setActiveSection]=useState('home')
+  const location = useLocation()
 
   const closeMenu = () => setIsMenuOpen(false)
   useEffect(()=>{
+
+if (location.pathname === '/about') {
+setActiveSection('about')
+return undefined
+}
+
+if (location.pathname === '/contact') {
+setActiveSection('contact')
+return undefined
+}
 
 const sections=document.querySelectorAll('section[id]')
 
@@ -49,7 +61,7 @@ observer.observe(section)
 
 return ()=>observer.disconnect()
 
-},[])
+},[location.pathname])
 
  return (
 
@@ -123,9 +135,9 @@ aria-hidden="true"
 
 <li>
 
-<a
+<Link
 
-href="#home"
+to="/"
 
 className={
 
@@ -143,15 +155,15 @@ onClick={closeMenu}
 
 Home
 
-</a>
+</Link>
 
 </li>
 
 <li>
 
-<a
+<Link
 
-href="#rooms"
+to="/#rooms"
 
 className={
 
@@ -169,15 +181,15 @@ onClick={closeMenu}
 
 Rooms
 
-</a>
+</Link>
 
 </li>
 
 <li>
 
-<a
+<Link
 
-href="#about"
+to="/about"
 
 className={
 
@@ -195,15 +207,15 @@ onClick={closeMenu}
 
 About
 
-</a>
+</Link>
 
 </li>
 
 <li>
 
-<a
+<Link
 
-href="#services"
+to="/#services"
 
 className={
 
@@ -221,15 +233,15 @@ onClick={closeMenu}
 
 Services
 
-</a>
+</Link>
 
 </li>
 
 <li>
 
-<a
+<Link
 
-href="#contact"
+to="/contact"
 
 className={
 
@@ -247,7 +259,7 @@ onClick={closeMenu}
 
 Contact
 
-</a>
+</Link>
 
 </li>
 

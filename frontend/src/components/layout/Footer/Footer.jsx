@@ -31,13 +31,13 @@ export default function Footer() {
 
       whileInView={{ opacity: 1, y: 0 }}
 
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
 
       viewport={{
 
-once:false,
+once:true,
 
-amount:0.3
+amount:0.2
 
 }}
 
@@ -55,13 +55,13 @@ amount:0.3
 
           whileInView={{ opacity: 1, y: 0 }}
 
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
 
          viewport={{
 
-once:false,
+once:true,
 
-amount:0.3
+amount:0.2
 
 }}
 
@@ -123,13 +123,13 @@ amount:0.3
 
           whileInView={{ opacity: 1, y: 0 }}
 
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
 
           viewport={{
 
-once:false,
+once:true,
 
-amount:0.3
+amount:0.2
 
 }}
 
@@ -196,13 +196,13 @@ amount:0.3
 
           whileInView={{ opacity: 1, y: 0 }}
 
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
 
           viewport={{
 
-once:false,
+once:true,
 
-amount:0.3
+amount:0.2
 
 }}
 
@@ -242,13 +242,13 @@ amount:0.3
 
           whileInView={{ opacity: 1, y: 0 }}
 
-          transition={{ duration: 0.5, delay: 0.45 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: 'easeOut' }}
 
           viewport={{
 
-once:false,
+once:true,
 
-amount:0.3
+amount:0.2
 
 }}
 

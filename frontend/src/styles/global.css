@@ -17,10 +17,10 @@
 }
 
 body.light-mode {
-  --color-black: #ffffff;
-  --color-dark-gray: #f5f5f5;
-  --color-white: #111111;
-  --color-light-gray: #2b2b2b;
+  --color-black: #f8f8f6;
+  --color-dark-gray: #ffffff;
+  --color-white: #1b1b1b;
+  --color-light-gray: #ececea;
 }
 
 html {

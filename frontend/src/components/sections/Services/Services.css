@@ -59,7 +59,7 @@ body.light-mode .services-content > .services-description {
 
 .services-btn {
   background-color: var(--color-gold);
-  color: var(--color-black);
+  color: #050505;
   padding: clamp(0.7rem, 1.2vw, 0.75rem) clamp(1.25rem, 2vw, 1.75rem);
   font-size: clamp(0.85rem, 1.5vw, 1rem);
   font-weight: 600;

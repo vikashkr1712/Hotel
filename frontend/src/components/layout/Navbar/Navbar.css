@@ -6,6 +6,7 @@
   background: transparent;
   z-index: 100;
   padding: clamp(1.25rem, 3vw, 1.875rem) 0;
+  transition: color 0.35s ease;
 }
 
 .navbar-container {
@@ -47,7 +48,7 @@
   text-transform: uppercase;
   letter-spacing: 0.0625rem;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar-links a:after {
@@ -58,11 +59,13 @@
   width: 0;
   height: 0.125rem;
   background: var(--color-gold);
-  transition: width 0.3s ease;
+  opacity: 0.9;
+  transition: width 0.3s ease, opacity 0.3s ease;
 }
 
 .navbar-links a:hover {
   color: var(--color-gold);
+  transform: translateY(-2px);
 }
 
 .navbar-links a:hover:after {
@@ -98,7 +101,7 @@ width:100% !important;
 }
 
 .navbar .theme-toggle {
-  display: none;
+  display: inline-flex;
 }
 
 body.light-mode .navbar-links a {
@@ -116,8 +119,12 @@ body.light-mode .navbar-btn {
 
 .navbar-btn:hover {
   background-color: #b39240;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(200, 166, 77, 0.3);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(200, 166, 77, 0.34);
+}
+
+.navbar-btn:active {
+  transform: translateY(0) scale(0.97);
 }
 
 @media (min-width: 1700px) {

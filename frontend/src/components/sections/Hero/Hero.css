@@ -53,7 +53,7 @@
 
 .hero-btn {
   background-color: var(--color-gold);
-  color: var(--color-black);
+  color: #050505;
   padding: clamp(0.75rem, 1.5vw, 0.9375rem) clamp(1.75rem, 3vw, 2.5rem);
   font-size: clamp(0.85rem, 1.5vw, 1rem);
   font-weight: 600;

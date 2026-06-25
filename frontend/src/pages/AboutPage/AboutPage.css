@@ -2,6 +2,7 @@
   background: var(--color-black);
   color: var(--color-white);
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .page-hero {
@@ -24,8 +25,6 @@
 .page-hero-image {
   object-fit: cover;
   object-position: center 50%;
-  transform: scale(1);
-  animation: heroImageSettle 8s ease-out both;
 }
 
 .page-hero-overlay {
@@ -42,12 +41,12 @@
   font-size: clamp(3rem, 5.2vw, 5.75rem);
   font-weight: 700;
   line-height: 1;
-  animation: heroTitleReveal 0.9s ease-out both;
 }
 
 .heritage-section {
   background: var(--color-dark-gray);
   padding: clamp(4.5rem, 6.7vw, 8rem) 0;
+  transition: background-color 0.35s ease;
 }
 
 .heritage-inner,
@@ -102,6 +101,7 @@
   font-weight: 700;
   line-height: 1;
   margin-bottom: clamp(2rem, 3vw, 4rem);
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .section-label.light {
@@ -117,6 +117,7 @@
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: 0;
+  transition: color 0.35s ease;
 }
 
 .heritage-copy h2 {
@@ -134,6 +135,7 @@
   font-weight: 700;
   line-height: 1.25;
   margin: 0 0 clamp(1.8rem, 2vw, 2.7rem);
+  transition: color 0.35s ease;
 }
 
 .gold-button {
@@ -149,6 +151,16 @@
   font-size: clamp(1.1rem, 1.2vw, 1.45rem);
   font-weight: 700;
   line-height: 1;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+}
+
+.gold-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(200, 166, 77, 0.34);
+}
+
+.gold-button:active {
+  transform: translateY(0) scale(0.97);
 }
 
 .gold-button span {
@@ -159,6 +171,7 @@
 .story-section {
   background: var(--color-black);
   padding: clamp(4.75rem, 6.8vw, 8.25rem) 0;
+  transition: background-color 0.35s ease;
 }
 
 .story-inner {
@@ -183,6 +196,7 @@
 .infrastructure-section {
   background: var(--color-dark-gray);
   padding: clamp(5rem, 7vw, 8rem) 0 clamp(5.5rem, 7.5vw, 9rem);
+  transition: background-color 0.35s ease;
 }
 
 .infrastructure-inner h2 {
@@ -201,7 +215,10 @@
   position: relative;
   min-height: clamp(28rem, 35.4vw, 42.5rem);
   overflow: hidden;
-  animation: sectionReveal 0.7s ease-out both;
+  cursor: pointer;
+  border: 1px solid transparent;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .infrastructure-card img,
@@ -215,16 +232,28 @@
 .infrastructure-card img {
   object-fit: cover;
   object-position: center;
-  transition: transform 0.45s ease;
+  transform: scale(1);
+  transition: transform 0.35s ease;
 }
 
 .infrastructure-card:hover img {
-  transform: scale(1.035);
+  transform: scale(1.08);
+}
+
+.infrastructure-card:hover {
+  border-color: rgba(200, 166, 77, 0.56);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38), 0 0 24px rgba(200, 166, 77, 0.18);
+  transform: translateY(-8px) scale(1.03);
 }
 
 .card-shade {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.86) 100%);
   z-index: 1;
+  transition: background 0.35s ease;
+}
+
+.infrastructure-card:hover .card-shade {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12) 42%, rgba(0, 0, 0, 0.9) 100%);
 }
 
 .card-copy {
@@ -234,6 +263,11 @@
   bottom: clamp(1rem, 1.25vw, 1.5rem);
   z-index: 2;
   color: #ffffff;
+  transition: transform 0.35s ease;
+}
+
+.infrastructure-card:hover .card-copy {
+  transform: translateY(-4px);
 }
 
 .card-copy h3 {
@@ -242,6 +276,11 @@
   font-weight: 700;
   line-height: 1;
   margin-bottom: 0.45rem;
+  transition: color 0.35s ease;
+}
+
+.infrastructure-card:hover .card-copy h3 {
+  color: #c8a64d;
 }
 
 .card-copy p {
@@ -250,6 +289,40 @@
   font-weight: 700;
   line-height: 1.15;
   color: #ffffff;
+}
+
+body.light-mode .about-page {
+  background: #f8f8f6;
+  color: #1b1b1b;
+}
+
+body.light-mode .heritage-section,
+body.light-mode .infrastructure-section {
+  background: #ffffff;
+}
+
+body.light-mode .story-section {
+  background: #f8f8f6;
+}
+
+body.light-mode .heritage-copy h2,
+body.light-mode .story-copy h2,
+body.light-mode .infrastructure-inner h2,
+body.light-mode .heritage-copy p,
+body.light-mode .story-copy p {
+  color: #1b1b1b;
+}
+
+body.light-mode .section-label.light {
+  background: #1b1b1b;
+  color: #c8a64d;
+}
+
+body.light-mode .heritage-media img,
+body.light-mode .story-media img,
+body.light-mode .mobile-section-media img,
+body.light-mode .infrastructure-card {
+  box-shadow: 0 18px 42px rgba(27, 27, 27, 0.08);
 }
 
 @media (max-width: 1279px) {
@@ -417,12 +490,14 @@
   .page-hero h1,
   .infrastructure-card {
     animation: none;
+    transition: none;
   }
 
   .infrastructure-card img {
     transition: none;
   }
 
+  .infrastructure-card:hover,
   .infrastructure-card:hover img {
     transform: none;
   }

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import Home from '../pages/Home/Home'
 import AboutPage from '../pages/AboutPage/AboutPage'
 import ContactPage from '../pages/ContactPage/ContactPage'
@@ -10,7 +10,7 @@ export default function App() {
     return localStorage.getItem('theme') || 'dark'
   })
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     document.body.classList.toggle('light-mode',theme==='light')
     localStorage.setItem('theme',theme)
   },[theme])

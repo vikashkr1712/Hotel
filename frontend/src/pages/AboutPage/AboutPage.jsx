@@ -1,5 +1,6 @@
 import Navbar from '../../components/layout/Navbar/Navbar'
 import Footer from '../../components/layout/Footer/Footer'
+import { motion } from 'framer-motion'
 import './AboutPage.css'
 
 import heroImage from '../../assets/images/about_us_page/1st_image.png'
@@ -45,22 +46,93 @@ const infrastructureCards = [
   }
 ]
 
+const viewport = { once: true, amount: 0.2 }
+
+const sectionReveal = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: 'easeOut' }
+  }
+}
+
+const heroImageReveal = {
+  hidden: { opacity: 0, scale: 1.03 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: 'easeOut' }
+  }
+}
+
+const heroTitleReveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, delay: 0.2, ease: 'easeOut' }
+  }
+}
+
+const imageReveal = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.65, ease: 'easeOut' }
+  }
+}
+
+const cardReveal = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      delay: index * 0.1,
+      ease: 'easeOut'
+    }
+  })
+}
+
 export default function AboutPage({ theme, toggleTheme }) {
   return (
     <div className="about-page">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <section className="page-hero about-page-hero" id="about">
-        <img src={heroImage} alt="" className="page-hero-image" />
+        <motion.img
+          src={heroImage}
+          alt=""
+          className="page-hero-image"
+          variants={heroImageReveal}
+          initial="hidden"
+          animate="visible"
+        />
         <div className="page-hero-overlay"></div>
-        <h1>About Us</h1>
+        <motion.h1
+          variants={heroTitleReveal}
+          initial="hidden"
+          animate="visible"
+        >
+          About Us
+        </motion.h1>
       </section>
 
-      <section className="heritage-section">
+      <motion.section
+        className="heritage-section"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+      >
         <div className="heritage-inner">
-          <div className="heritage-media">
+          <motion.div className="heritage-media" variants={imageReveal}>
             <img src={heritageImage} alt="Luxury hotel bedroom" />
-          </div>
+          </motion.div>
           <div className="heritage-copy">
             <span className="section-label">About grandeur</span>
             <h2>A Heritage of Excellence</h2>
@@ -80,9 +152,15 @@ export default function AboutPage({ theme, toggleTheme }) {
             <a className="gold-button" href="/contact">Discover More <span>↗</span></a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="story-section">
+      <motion.section
+        className="story-section"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+      >
         <div className="story-inner">
           <div className="story-copy">
             <span className="section-label light">Our Story</span>
@@ -102,29 +180,40 @@ export default function AboutPage({ theme, toggleTheme }) {
             </p>
             <a className="gold-button" href="/about">Read More <span>↗</span></a>
           </div>
-          <div className="story-media">
+          <motion.div className="story-media" variants={imageReveal}>
             <img src={storyImage} alt="Sunlit hotel room" />
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="infrastructure-section">
+      <motion.section
+        className="infrastructure-section"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+      >
         <div className="infrastructure-inner">
           <h2>Our Infrastructure</h2>
           <div className="infrastructure-grid">
-            {infrastructureCards.map((card) => (
-              <article className="infrastructure-card" key={card.title}>
+            {infrastructureCards.map((card, index) => (
+              <motion.article
+                className="infrastructure-card"
+                key={card.title}
+                custom={index}
+                variants={cardReveal}
+              >
                 <img src={card.image} alt={card.title} />
                 <div className="card-shade"></div>
                 <div className="card-copy">
                   <h3>{card.title}</h3>
                   <p>{card.subtitle}</p>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </div>

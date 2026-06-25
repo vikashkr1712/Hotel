@@ -91,7 +91,7 @@ body.light-mode .booking-field input::-webkit-calendar-picker-indicator {
 
 .booking-btn {
   background-color: var(--color-gold);
-  color: var(--color-black);
+  color: #050505;
   width: auto;
   min-width: 11rem;
   padding: clamp(0.8rem, 1.4vw, 0.95rem) clamp(1.25rem, 2vw, 1.875rem);

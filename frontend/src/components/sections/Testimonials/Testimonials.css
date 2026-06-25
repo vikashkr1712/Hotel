@@ -1,11 +1,13 @@
 .testimonials {
   background-color: var(--color-black);
   padding: clamp(3.75rem, 7vw, 6.25rem) 0;
+  overflow: hidden;
 }
 
 .testimonials-container {
   width: min(90%, 1440px);
   margin: 0 auto;
+  min-width: 0;
 }
 
 /* Header */
@@ -65,6 +67,7 @@ gap:clamp(1.5rem,3vw,2.5rem);
   display: flex;
   flex-direction: column;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  min-width: 0;
 }
 
 .testimonial-card:hover {

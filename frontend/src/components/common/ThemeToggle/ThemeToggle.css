@@ -26,8 +26,8 @@ body.light-mode .theme-toggle {
 
 @media (max-width: 767px) {
   .theme-toggle {
-    width: 2.25rem;
-    height: 2.25rem;
-    margin-left: auto;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-left: 0;
   }
 }

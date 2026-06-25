@@ -570,7 +570,7 @@ body.light-mode .facility-list div {
   }
 
   .details-panel {
-    width: 100vw;
+    width: min(100vw, 34rem);
     padding: 1rem 1rem 1.5rem;
   }
 
@@ -592,5 +592,24 @@ body.light-mode .facility-list div {
     top: 16.8rem;
     width: 2.15rem;
     height: 2.15rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .rooms-slider .slick-list {
+    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .rooms-slider .slick-slide {
+    padding: 0;
+  }
+
+  .rooms-slider-wrapper {
+    overflow: hidden;
+  }
+
+  .room-card {
+    min-width: 0;
   }
 }

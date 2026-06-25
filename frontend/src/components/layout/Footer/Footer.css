@@ -5,6 +5,7 @@
   border-top: 1px solid transparent;
   color: var(--color-white);
   transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  overflow: hidden;
 }
 
 body.light-mode .footer {
@@ -19,6 +20,7 @@ body.light-mode .footer {
   display: grid;
   grid-template-columns: 1.2fr 0.9fr 0.8fr 1.2fr;
   gap: clamp(3rem, 5.2vw, 6rem);
+  min-width: 0;
 }
 
 
@@ -27,6 +29,7 @@ body.light-mode .footer {
 .footer-column {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 /* Logo */
@@ -274,6 +277,7 @@ body.light-mode .footer-bottom-social span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 0;
 }
 
 .copyright {
@@ -361,6 +365,10 @@ body.light-mode .footer-bottom-social span {
   .footer-bottom-container {
     flex-direction: column;
     gap: 0.9375rem;
+  }
+
+  .newsletter-form {
+    width: 100%;
   }
 }
 

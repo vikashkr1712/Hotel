@@ -26,6 +26,8 @@ body.light-mode {
 html {
   scroll-behavior: smooth;
   font-size: 100%;
+  width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -33,8 +35,15 @@ body {
   color: var(--color-white);
   background-color: var(--color-black);
   line-height: 1.6;
-  overflow-x: hidden;
+  width: 100%;
+  overflow-x: clip;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root,
+.home {
+  width: 100%;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,6 +98,8 @@ button {
 
 section {
   padding: clamp(4rem, 6vw, 7rem) 0;
+  width: 100%;
+  overflow-x: clip;
 }
 
 /* Scrollbar styling */

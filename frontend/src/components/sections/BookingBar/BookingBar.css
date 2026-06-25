@@ -3,11 +3,13 @@
   z-index: 50;
   margin-top: clamp(-5rem, -6vw, -3.75rem);
   padding: 0 0 clamp(2.5rem, 5vw, 3.75rem);
+  overflow: hidden;
 }
 
 .booking-container {
   width: min(90%, 1440px);
   margin: 0 auto;
+  min-width: 0;
 }
 
 .booking-form {
@@ -20,11 +22,13 @@
   align-items: flex-end;
   justify-content: space-between;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  min-width: 0;
 }
 
 .booking-field {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .booking-field label {
@@ -107,6 +111,7 @@ body.light-mode .booking-field input::-webkit-calendar-picker-indicator {
   align-self: flex-end;
   justify-self: end;
   margin-left: auto;
+  min-width: 0;
 }
 
 .booking-btn:hover {

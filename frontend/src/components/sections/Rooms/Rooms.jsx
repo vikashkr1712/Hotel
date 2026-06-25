@@ -70,6 +70,14 @@ export default function Rooms() {
 
     adaptiveHeight:false,
 
+    centerMode:false,
+
+    variableWidth:false,
+
+    swipeToSlide:true,
+
+    touchThreshold:10,
+
     nextArrow:<NextArrow />,
 
     prevArrow:<PrevArrow />,
@@ -94,7 +102,15 @@ export default function Rooms() {
 
         settings:{
 
-          slidesToShow:1
+          slidesToShow:1,
+
+          slidesToScroll:1,
+
+          centerMode:false,
+
+          variableWidth:false,
+
+          adaptiveHeight:true
 
         }
 

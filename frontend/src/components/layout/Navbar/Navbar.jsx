@@ -55,7 +55,7 @@ export default function Navbar({ theme,toggleTheme }) {
     { label:'Rooms', to:'/#rooms', section:'rooms', icon:FaBed },
     { label:'About', to:'/about', section:'about', icon:FiUser },
     { label:'Services', to:'/#services', section:'services', icon:FiBriefcase },
-    { label:'Contact', to:'/', section:'contact', icon:FiMail }
+    { label:'Contact', to:'/contact', section:'contact', icon:FiMail }
   ]
   useEffect(()=>{
 
@@ -146,7 +146,7 @@ ease:'easeOut'
 
 {/* Logo */}
 
-<Link to="/" className="navbar-logo" aria-label="Grandeur contact page">
+<Link to="/grandeur" className="navbar-logo" aria-label="Grandeur contact page">
 
 <span className="navbar-logo-title">GRANDEUR</span>
 

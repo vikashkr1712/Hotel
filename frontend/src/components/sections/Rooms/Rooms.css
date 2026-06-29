@@ -11,15 +11,28 @@ body.light-mode .rooms {
   background: #ffffff;
 }
 
+body.light-mode .rooms-slider-wrapper,
+body.light-mode .rooms-slider,
+body.light-mode .rooms-slider .slick-list,
+body.light-mode .rooms-slider .slick-track,
+body.light-mode .rooms-slider .slick-slide,
+body.light-mode .rooms-slider .slick-slide > div {
+  background: #ffffff;
+}
+
 body.light-mode .room-card {
   border-color: rgba(200, 166, 77, 0.28);
   background: #ffffff;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: none;
 }
 
 body.light-mode .room-card:hover {
   border-color: rgba(200, 166, 77, 0.55);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(200, 166, 77, 0.12);
+  box-shadow: 0 0 0 1px rgba(200, 166, 77, 0.12);
+}
+
+body.light-mode .room-details {
+  background: #ffffff;
 }
 
 body.light-mode .room-title,
@@ -492,13 +505,45 @@ body.light-mode .facility-list div {
 
 @media (max-width: 1024px) {
   .rooms-slider-wrapper {
-    padding: 0 clamp(3.35rem, 6vw, 4.25rem);
+    padding: 0 clamp(4.25rem, 7vw, 5rem);
+  }
+
+  .rooms-slider .slick-list {
+    margin: 0 -0.65rem;
+  }
+
+  .rooms-slider .slick-slide {
+    display: flex;
+    height: auto;
+    padding: 0 0.65rem;
+  }
+
+  .rooms-slider .slick-slide > div,
+  .rooms-slider .slick-slide > div > .room-card {
+    display: flex;
+    width: 100%;
+  }
+
+  .room-title {
+    min-height: 2.4em;
+  }
+
+  .slider-arrow {
+    top: 50%;
+  }
+
+  .prev-arrow {
+    left: 0.45rem;
+  }
+
+  .next-arrow {
+    right: 0.45rem;
   }
 }
 
 @media (max-width: 767px) {
   .rooms {
-    padding: 3.75rem 0;
+    padding: 3.25rem 0;
   }
 
   .rooms-container {
@@ -508,19 +553,22 @@ body.light-mode .facility-list div {
   .rooms-header {
     align-items: flex-start;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.1rem;
+    margin-bottom: 1.75rem;
   }
 
   .see-all-btn {
     width: min(100%, 14rem);
+    min-height: 2.85rem;
   }
 
   .rooms-slider-wrapper {
-    padding: 0 3.05rem;
+    padding: 0 2.85rem;
   }
 
   .rooms-slider .slick-list {
     margin: 0;
+    padding: 0.1rem 0 0.45rem;
   }
 
   .rooms-slider .slick-slide {
@@ -528,7 +576,7 @@ body.light-mode .facility-list div {
   }
 
   .slider-arrow {
-    top: 17.4rem;
+    top: 50%;
     width: 2.35rem;
     height: 2.35rem;
   }
@@ -542,7 +590,60 @@ body.light-mode .facility-list div {
   }
 
   .room-image {
-    min-height: 12rem;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .room-details {
+    padding: 0.95rem;
+  }
+
+  .room-price {
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+  }
+
+  .room-title {
+    min-height: 2.35em;
+    margin-bottom: 0.75rem;
+    font-size: 1.18rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .room-amenities {
+    gap: 0.55rem 0.7rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .amenity {
+    gap: 0.4rem;
+  }
+
+  .check-icon {
+    font-size: 0.85rem;
+  }
+
+  .amenity span {
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .room-description {
+    display: none;
+  }
+
+  .room-actions {
+    gap: 0.5rem;
+  }
+
+  .room-btn,
+  .room-details-btn {
+    min-height: 2.65rem;
+    font-size: 0.74rem;
+    letter-spacing: 1.4px;
   }
 }
 
@@ -555,18 +656,13 @@ body.light-mode .facility-list div {
     padding: 0 2.75rem;
   }
 
-  .room-amenities,
   .details-grid,
   .facility-list {
     grid-template-columns: 1fr;
   }
 
   .room-details {
-    padding: 1.15rem;
-  }
-
-  .room-description {
-    min-height: auto;
+    padding: 0.9rem;
   }
 
   .details-panel {
@@ -589,7 +685,7 @@ body.light-mode .facility-list div {
   }
 
   .slider-arrow {
-    top: 16.8rem;
+    top: 50%;
     width: 2.15rem;
     height: 2.15rem;
   }
@@ -614,7 +710,9 @@ body.light-mode .facility-list div {
   }
 
   .rooms-slider .slick-slide > div {
+    display: flex;
     width: 100%;
+    height: 100%;
   }
 
   .rooms-slider-wrapper {
@@ -623,5 +721,6 @@ body.light-mode .facility-list div {
 
   .room-card {
     min-width: 0;
+    width: 100%;
   }
 }

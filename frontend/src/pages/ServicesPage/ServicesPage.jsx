@@ -107,7 +107,7 @@ export default function ServicesPage({ theme, toggleTheme }) {
       <main id="services">
         <section
           className="services-hero"
-          style={{ '--services-hero-image': `url(${fineDiningImage})` }}
+          style={{ '--services-hero-image': `url(${luxuryRoomImage})` }}
         >
           <div className="services-hero-overlay"></div>
           <motion.header

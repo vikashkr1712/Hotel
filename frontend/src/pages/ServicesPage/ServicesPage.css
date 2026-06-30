@@ -38,8 +38,8 @@
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--bg-primary) 16%, transparent), var(--overlay-soft) 54%),
-    linear-gradient(180deg, var(--overlay-strong), var(--overlay-soft) 44%, var(--bg-primary));
+    radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.58) 58%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.58) 52%, rgba(0, 0, 0, 0.78));
 }
 
 .services-page-main {
@@ -375,8 +375,8 @@
 
 .light-mode .services-hero-overlay {
   background:
-    radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.18), var(--overlay-soft) 54%),
-    linear-gradient(180deg, var(--overlay-strong), var(--overlay-soft) 44%, color-mix(in srgb, var(--bg-primary) 92%, transparent));
+    radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.58) 58%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.58) 52%, rgba(0, 0, 0, 0.78));
 }
 
 .light-mode .services-page-header h1,

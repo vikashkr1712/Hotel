@@ -5,23 +5,23 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  background: rgba(0, 0, 0, 0.35);
-  color: var(--color-gold);
-  border: 1px solid rgba(200, 166, 77, 0.45);
+  background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
+  color: var(--accent-gold);
+  border: 1px solid color-mix(in srgb, var(--accent-gold) 45%, transparent);
   border-radius: 50%;
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .theme-toggle:hover {
-  background: var(--color-gold);
-  color: #050505;
+  background: var(--accent-gold);
+  color: var(--button-text);
   transform: translateY(-2px);
 }
 
 body.light-mode .theme-toggle {
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--color-gold);
-  border-color: rgba(200, 166, 77, 0.7);
+  background: color-mix(in srgb, var(--bg-secondary) 90%, transparent);
+  color: var(--accent-gold);
+  border-color: color-mix(in srgb, var(--accent-gold) 70%, transparent);
 }
 
 @media (max-width: 767px) {

@@ -218,7 +218,7 @@ amount:0.2
 
             <li><a href="/about">About Us</a></li>
 
-            <li><a href="/#services">Services</a></li>
+            <li><a href="/services">Services</a></li>
 
             <li><a href="/#rooms">Rooms</a></li>
 

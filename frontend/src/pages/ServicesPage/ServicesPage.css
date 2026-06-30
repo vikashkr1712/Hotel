@@ -375,17 +375,17 @@
 
 .light-mode .services-hero-overlay {
   background:
-    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.12) 68%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 54%, rgba(248, 248, 248, 0.18));
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.05) 68%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01) 54%, rgba(255, 255, 255, 0.06));
 }
 
 .light-mode .services-page-header h1 {
-  color: #111111;
+  color: #000000;
   text-shadow: 0 0.45rem 1.4rem rgba(255, 255, 255, 0.5);
 }
 
 .light-mode .services-page-intro {
-  color: #111111;
+  color: #000000;
   text-shadow: 0 0.35rem 1rem rgba(255, 255, 255, 0.45);
 }
 

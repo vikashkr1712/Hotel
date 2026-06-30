@@ -81,7 +81,6 @@
   border: 1px solid color-mix(in srgb, var(--accent-gold) 82%, transparent);
   border-radius: 999px;
   padding: 0 1.8rem;
-  background: color-mix(in srgb, var(--bg-primary) 42%, transparent);
   color: var(--accent-gold-soft);
   font-size: 0.8rem;
   font-weight: 800;

@@ -178,6 +178,10 @@ body.light-mode .rooms {
   min-width: 0;
 }
 
+.rooms-slider {
+  width: 100%;
+}
+
 .rooms-slider .slick-list {
   overflow: hidden;
   margin: 0;
@@ -187,7 +191,6 @@ body.light-mode .rooms {
 .rooms-slider .slick-track {
   display: flex;
   align-items: stretch;
-  width: 100%;
 }
 
 .rooms-slider .slick-slide {
@@ -197,12 +200,10 @@ body.light-mode .rooms {
 
 .rooms-slider .slick-slide > div {
   height: 100%;
-  width: 100%;
 }
 
 .rooms-slide {
   height: 100%;
-  width: 100%;
   min-width: 0;
   padding: 0 clamp(0.45rem, 0.7vw, 0.8rem);
 }
@@ -507,6 +508,27 @@ body.light-mode .rooms {
 }
 
 @media (max-width: 767px) {
+  .rooms-slider-shell {
+    overflow: hidden;
+  }
+
+  .rooms-slider .slick-list {
+    overflow: hidden;
+  }
+
+  .rooms-slider .slick-track {
+    display: flex;
+    width: 100% !important;
+  }
+
+  .rooms-slider .slick-slide,
+  .rooms-slide,
+  .rooms-showcase-card {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
   .rooms {
     padding: clamp(3rem, 11vw, 4.35rem) 0 clamp(2.85rem, 9vw, 3.75rem);
   }

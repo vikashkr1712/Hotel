@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Slider from 'react-slick'
@@ -27,6 +27,28 @@ const roomDescriptions = {
 }
 
 const amenityIcons = [FaRegUser, FaBed, FaBath, FaWifi]
+
+const getSlidesToShow = () => {
+  if (typeof window === 'undefined') {
+    return 3
+  }
+
+  const viewportWidth = Math.min(
+    window.innerWidth || Infinity,
+    document.documentElement?.clientWidth || Infinity,
+    window.visualViewport?.width || Infinity
+  )
+
+  if (viewportWidth < 900) {
+    return 1
+  }
+
+  if (viewportWidth < 1280) {
+    return 2
+  }
+
+  return 3
+}
 
 const formatAmenities = room => {
   const guests = room.id === 3 || room.id === 4 ? '1-3 Guests' : room.id === 5 ? '2-4 Guests' : '1-2 Guests'
@@ -91,13 +113,29 @@ function RoomShowcaseCard({ room }) {
 export default function Rooms() {
   const sliderRef = useRef(null)
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSlidesToShow(getSlidesToShow())
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    window.visualViewport?.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      window.visualViewport?.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const settings = {
     arrows: false,
     dots: false,
     infinite: true,
     speed: 450,
-    slidesToShow: 3,
+    slidesToShow,
     slidesToScroll: 1,
     autoplay: false,
     adaptiveHeight: false,
@@ -106,23 +144,7 @@ export default function Rooms() {
     touchThreshold: 12,
     centerMode: false,
     variableWidth: false,
-    beforeChange: (_, next) => setCurrentSlide(next),
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+    beforeChange: (_, next) => setCurrentSlide(next)
   }
 
   return (
@@ -159,7 +181,7 @@ export default function Rooms() {
         </header>
 
         <div className="rooms-slider-shell">
-          <Slider ref={sliderRef} {...settings} className="rooms-slider">
+          <Slider ref={sliderRef} {...settings} key={slidesToShow} className="rooms-slider">
             {roomData.map(room => (
               <div className="rooms-slide" key={room.id}>
                 <RoomShowcaseCard room={room} />

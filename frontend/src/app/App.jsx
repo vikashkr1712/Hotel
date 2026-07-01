@@ -5,6 +5,7 @@ import AboutPage from '../pages/AboutPage/AboutPage'
 import ContactPage from '../pages/ContactPage/ContactPage'
 import GrandeurContactPage from '../pages/GrandeurContactPage/GrandeurContactPage'
 import ServicesPage from '../pages/ServicesPage/ServicesPage'
+import RoomsPage from '../pages/RoomsPage/RoomsPage'
 
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
+          <Route path="/rooms" element={<RoomsPage theme={theme} toggleTheme={toggleTheme} />} />
           <Route path="/about" element={<AboutPage theme={theme} toggleTheme={toggleTheme} />} />
           <Route path="/services" element={<ServicesPage theme={theme} toggleTheme={toggleTheme} />} />
           <Route path="/contact" element={<ContactPage theme={theme} toggleTheme={toggleTheme} />} />

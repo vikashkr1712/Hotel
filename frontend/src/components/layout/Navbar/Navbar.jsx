@@ -52,7 +52,7 @@ export default function Navbar({ theme,toggleTheme }) {
   const closeMenu = () => setIsMenuOpen(false)
   const navItems = [
     { label:'Home', to:'/', section:'home', icon:FiHome },
-    { label:'Rooms', to:'/#rooms', section:'rooms', icon:FaBed },
+    { label:'Rooms', to:'/rooms', section:'rooms', icon:FaBed },
     { label:'About', to:'/about', section:'about', icon:FiUser },
     { label:'Services', to:'/services', section:'services', icon:FiBriefcase },
     { label:'Contact', to:'/contact', section:'contact', icon:FiMail }
@@ -61,6 +61,11 @@ export default function Navbar({ theme,toggleTheme }) {
 
 if (location.pathname === '/about') {
 setActiveSection('about')
+return undefined
+}
+
+if (location.pathname === '/rooms') {
+setActiveSection('rooms')
 return undefined
 }
 

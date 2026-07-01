@@ -1,251 +1,202 @@
-import './Rooms.css'
-
-import { useEffect, useState } from 'react'
-
-import RoomCard from './RoomCard'
+import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import Slider from 'react-slick'
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaBath,
+  FaBed,
+  FaRegUser,
+  FaThLarge,
+  FaWifi
+} from 'react-icons/fa'
 
 import { roomData } from '../../../data/roomData'
-
-import Slider from 'react-slick'
-
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-
-import { motion } from 'framer-motion'
-
+import './Rooms.css'
 import 'slick-carousel/slick/slick.css'
-
 import 'slick-carousel/slick/slick-theme.css'
 
-function NextArrow({ onClick }) {
-
-  return (
-
-    <button
-
-      className="slider-arrow next-arrow"
-
-      onClick={onClick}
-
-    >
-
-      <FaChevronRight />
-
-    </button>
-
-  )
-
+const roomDescriptions = {
+  1: 'Spacious and warm, perfect for family stays with all modern amenities.',
+  2: 'Elegant rooms with premium comfort designed for a relaxing stay.',
+  3: 'Premium suite with extra space for a truly luxurious experience.',
+  4: 'Luxury executive suite with refined details and elevated privacy.',
+  5: 'Exclusive presidential experience with generous lounge-style comfort.',
+  6: 'Comfortable deluxe room with serene views and polished finishes.'
 }
 
-function PrevArrow({ onClick }) {
+const amenityIcons = [FaRegUser, FaBed, FaBath, FaWifi]
 
-  return (
+const formatAmenities = room => {
+  const guests = room.id === 3 || room.id === 4 ? '1-3 Guests' : room.id === 5 ? '2-4 Guests' : '1-2 Guests'
 
-    <button
-
-      className="slider-arrow prev-arrow"
-
-      onClick={onClick}
-
-    >
-
-      <FaChevronLeft />
-
-    </button>
-
-  )
-
+  return [guests, 'King Bed', 'Bathtub', 'Free WiFi']
 }
 
-function getSlidesToShow() {
-  if (typeof window === 'undefined') {
-    return 3
-  }
+function RoomShowcaseCard({ room }) {
+  const amenities = formatAmenities(room)
 
-  const width = Math.min(
-    window.innerWidth || 1200,
-    document.documentElement.clientWidth || window.innerWidth || 1200,
-    window.visualViewport?.width || window.innerWidth || 1200
+  return (
+    <article className="rooms-showcase-card">
+      <div className="rooms-card-image">
+        <img src={room.image} alt={room.title} loading="lazy" />
+      </div>
+
+      <div className="rooms-card-content">
+        <div className="rooms-price-wrap">
+          <span className="rooms-price-label">FROM</span>
+          <p className="rooms-price">
+            {room.price} <span>/ night</span>
+          </p>
+        </div>
+
+        <div className="rooms-card-copy">
+          <div className="rooms-title-icon" aria-hidden="true">
+            <FaRegUser />
+          </div>
+          <div>
+            <h3>{room.title}</h3>
+            <p>{roomDescriptions[room.id] || room.description}</p>
+          </div>
+        </div>
+
+        <div className="rooms-amenities" aria-label={`${room.title} amenities`}>
+          {amenities.map((amenity, index) => {
+            const Icon = amenityIcons[index]
+
+            return (
+              <div className="rooms-amenity" key={amenity}>
+                <Icon aria-hidden="true" />
+                <span>{amenity}</span>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="rooms-actions">
+          <button className="rooms-book-btn" type="button">
+            <span>BOOK NOW</span>
+            <FaArrowRight aria-hidden="true" />
+          </button>
+          <Link className="rooms-details-btn" to="/rooms">
+            VIEW DETAILS
+          </Link>
+        </div>
+      </div>
+    </article>
   )
-
-  if (width <= 767) {
-    return 1
-  }
-
-  if (width <= 1024) {
-    return 2
-  }
-
-  return 3
 }
 
 export default function Rooms() {
-
-  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow)
-
-  useEffect(() => {
-    let frameId = 0
-
-    const updateSlides = () => {
-      cancelAnimationFrame(frameId)
-      frameId = requestAnimationFrame(() => {
-        setSlidesToShow(getSlidesToShow())
-      })
-    }
-
-    updateSlides()
-    window.addEventListener('resize', updateSlides)
-    window.addEventListener('orientationchange', updateSlides)
-    window.visualViewport?.addEventListener('resize', updateSlides)
-
-    return () => {
-      cancelAnimationFrame(frameId)
-      window.removeEventListener('resize', updateSlides)
-      window.removeEventListener('orientationchange', updateSlides)
-      window.visualViewport?.removeEventListener('resize', updateSlides)
-    }
-  }, [])
+  const sliderRef = useRef(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   const settings = {
-
-    dots:false,
-
-    infinite:true,
-
-    speed:500,
-
-    slidesToShow,
-
-    slidesToScroll:1,
-
-    adaptiveHeight:false,
-
-    centerMode:false,
-
-    variableWidth:false,
-
-    swipeToSlide:true,
-
-    touchThreshold:10,
-
-    nextArrow:<NextArrow />,
-
-    prevArrow:<PrevArrow />,
-
-    responsive:[
+    arrows: false,
+    dots: false,
+    infinite: true,
+    speed: 450,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: false,
+    adaptiveHeight: false,
+    swipe: true,
+    swipeToSlide: true,
+    touchThreshold: 12,
+    beforeChange: (_, next) => setCurrentSlide(next),
+    responsive: [
       {
-        breakpoint:1025,
-        settings:{
-          slidesToShow:2
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2
         }
       },
       {
-        breakpoint:769,
-        settings:{
-          slidesToShow:1
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1
         }
       }
     ]
-
   }
 
   return (
-
-    <section className="rooms" id="rooms">
-
+    <motion.section
+      className="rooms"
+      id="rooms"
+      initial={{ opacity: 0, y: 44 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <div className="rooms-container">
+        <header className="rooms-heading">
+          <p className="rooms-eyebrow">OUR ROOMS</p>
 
-        <motion.div
-
-          className="rooms-header"
-
-          initial={{
-
-            opacity:0,
-
-            y:50
-
-          }}
-
-          whileInView={{
-
-            opacity:1,
-
-            y:0
-
-          }}
-
-          transition={{
-
-            duration:0.8
-
-          }}
-
-         viewport={{
-
-once:true,
-
-amount:0.3
-
-}}
-
-        >
-
-          <div>
-
-            <div className="rooms-badge">
-
-              <span>
-
-                Room Type
-
-              </span>
-
-            </div>
-
-            <h2 className="rooms-title">
-
-              The Best Luxury Rooms and Suites
-
-            </h2>
-
+          <div className="rooms-divider" aria-hidden="true">
+            <span />
+            <i />
+            <span />
           </div>
 
-          <button className="see-all-btn">
+          <h2>
+            Suites Designed for <em>Comfort</em>
+          </h2>
 
-            See All Rooms
+          <p className="rooms-intro">
+            Experience elegance, comfort, and world-class hospitality in our thoughtfully designed rooms and suites.
+          </p>
 
-          </button>
+          <Link className="rooms-view-all" to="/rooms">
+            <FaThLarge aria-hidden="true" />
+            <span>VIEW ALL ROOMS</span>
+          </Link>
+        </header>
 
-        </motion.div>
-
-        <div className="rooms-slider-wrapper">
-
-          <Slider
-
-            {...settings}
-
-            className="rooms-slider"
-
-          >
-
-            {roomData.map(room=>(
-
-              <div key={room.id}>
-
-                <RoomCard room={room}/>
-
+        <div className="rooms-slider-shell">
+          <Slider ref={sliderRef} {...settings} className="rooms-slider">
+            {roomData.map(room => (
+              <div className="rooms-slide" key={room.id}>
+                <RoomShowcaseCard room={room} />
               </div>
-
             ))}
-
           </Slider>
-
         </div>
 
+        <div className="rooms-slider-controls" aria-label="Rooms slider controls">
+          <button
+            className="rooms-control"
+            type="button"
+            aria-label="Previous room"
+            onClick={() => sliderRef.current?.slickPrev()}
+          >
+            <FaArrowLeft aria-hidden="true" />
+          </button>
+
+          <div className="rooms-dots" role="tablist" aria-label="Select room slide">
+            {roomData.map((room, index) => (
+              <button
+                className={currentSlide % roomData.length === index ? 'is-active' : ''}
+                type="button"
+                key={room.id}
+                aria-label={`Show ${room.title}`}
+                aria-selected={currentSlide % roomData.length === index}
+                onClick={() => sliderRef.current?.slickGoTo(index)}
+              />
+            ))}
+          </div>
+
+          <button
+            className="rooms-control"
+            type="button"
+            aria-label="Next room"
+            onClick={() => sliderRef.current?.slickNext()}
+          >
+            <FaArrowRight aria-hidden="true" />
+          </button>
+        </div>
       </div>
-
-    </section>
-
+    </motion.section>
   )
-
 }

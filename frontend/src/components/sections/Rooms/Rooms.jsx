@@ -104,18 +104,22 @@ export default function Rooms() {
     swipe: true,
     swipeToSlide: true,
     touchThreshold: 12,
+    centerMode: false,
+    variableWidth: false,
     beforeChange: (_, next) => setCurrentSlide(next),
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1199,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          slidesToScroll: 1
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 767,
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
+          slidesToScroll: 1
         }
       }
     ]

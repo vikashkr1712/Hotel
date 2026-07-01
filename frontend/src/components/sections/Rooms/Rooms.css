@@ -180,31 +180,37 @@ body.light-mode .rooms {
 
 .rooms-slider .slick-list {
   overflow: hidden;
-  margin: 0 clamp(-0.7rem, -0.7vw, -0.45rem);
+  margin: 0;
   padding: 0.45rem 0 0.9rem;
 }
 
 .rooms-slider .slick-track {
   display: flex;
   align-items: stretch;
+  width: 100%;
 }
 
 .rooms-slider .slick-slide {
   height: auto;
+  min-width: 0;
 }
 
 .rooms-slider .slick-slide > div {
   height: 100%;
+  width: 100%;
 }
 
 .rooms-slide {
   height: 100%;
+  width: 100%;
+  min-width: 0;
   padding: 0 clamp(0.45rem, 0.7vw, 0.8rem);
 }
 
 .rooms-showcase-card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-width: 0;
   height: 100%;
   overflow: hidden;
